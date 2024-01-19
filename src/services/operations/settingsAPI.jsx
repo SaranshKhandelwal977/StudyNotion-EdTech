@@ -35,14 +35,14 @@ export function updateProfile(token, formData){
             if(!response.data.success){
                 throw new Error(response.data.message);
             }
-            const userImage = response.data?.userDetails?.image
-                ? response.data.userDetails.image
-                : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.userDetails.firstName} ${response.data.userDetails.lastName}`
-            dispatch(setUser({ ...response.data.userDetails, image:userImage }))
+            const userImage = response.data?.updatedUserDetails?.image
+                ? response.data.updatedUserDetails.image
+                : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName} ${response.data.updatedUserDetails.lastName}`
+            dispatch(setUser({ ...response.data.updatedUserDetails, image:userImage }))
             toast.success("Profile updated successfully")
         }
         catch(error){
-            console.log(error.message);
+            console.log(error);
             toast.error('Could not update profile')
         }
         toast.dismiss(toastId)
