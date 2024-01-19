@@ -13,7 +13,7 @@ exports.updateProfile = async(req,res) => {
         let userDetails = await User.findById(userId);
         const profileDetails = await Profile.findById(userDetails.additionalDetails);
 
-        const user = await User.findByIdAndUpdate(id, {firstName, lastName})
+        const user = await User.findByIdAndUpdate(userId, {firstName, lastName})
         await user.save()
 
         profileDetails.dateOfBirth = dateOfBirth;
