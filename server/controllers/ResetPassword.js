@@ -21,7 +21,7 @@ exports.resetPasswordToken = async(req,res) => {
         //update user for adding token and expiration time  
         const updatedDetails = await User.findOneAndUpdate({email:email},{token:token, resetPasswordExpires: Date.now() + 3600000},{new:true});
         //generate fronend link
-        const url = `https://localhost:3000/update-password/${token}`;
+        const url = `https://study-notion-ed-tech-lovat.vercel.app/update-password/${token}`;
         //send mail
         await mailSender(email,'Password reset link',`Your Link for email verification is ${url}. Please click this url to reset your password.`);
         //return response
