@@ -33,15 +33,13 @@ export async function buyCourse(courses, token, userDetails, navigate, dispatch)
         }
         //initiate the order
         const orderResponse = await apiConnector("POST", COURSE_PAYMENT_API, {courses}, {Authorization: `Bearer ${token}`});
-        if(!orderResponse.data.success){
-            throw new Error(orderResponse.data.message)
-        }
-        console.log( "Order response" ,orderResponse.data.message)
+        
+        console.log( "Order response" ,orderResponse)
         const options = {
             key: "rzp_test_rkqUJfyV2Is2Nf",
-            currency: orderResponse.data.message.currency,
-            amount: orderResponse.data.message.amount,
-            order_id: orderResponse.data.message.id,
+            currency: orderResponse.data.data.currency,
+            amount: orderResponse.data.data.amount,
+            order_id: orderResponse.data.data.id,
             name: "StudyNotion",
             description:"Thank you for purchasing course",
             image: rzpLogo,
@@ -51,7 +49,7 @@ export async function buyCourse(courses, token, userDetails, navigate, dispatch)
             }, 
             handler: function(response){
                 //send success mail
-                sendPaymentSuccessEmail(response, orderResponse.data.message.amount, token);
+                sendPaymentSuccessEmail(response, orderResponse.data.data.amount, token);
                 verifyPayment({...response, courses}, token, navigate, dispatch);
                 //verify payment
             }
