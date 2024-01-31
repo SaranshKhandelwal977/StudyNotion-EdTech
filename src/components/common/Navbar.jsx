@@ -4,7 +4,7 @@ import { Link, matchPath } from 'react-router-dom'
 import {NavbarLinks} from '../../data/navbar-links'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import {AiOutlineMenu, AiOutlineShoppingCart} from 'react-icons/ai'
+import {AiOutlineMenu, AiOutlineShoppingCart, AiOutlineClose} from 'react-icons/ai'
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
 import { apiConnector } from '../../services/apiConnector'
 import { categories } from '../../services/apis'
@@ -18,7 +18,8 @@ const Navbar = () => {
     const {totalItems} = useSelector((state) => state.cart);
     const location = useLocation();
     const [subLinks, setSubLinks] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(false);
 
     const matchRoute = (route) => {
         return matchPath({path:route}, location.pathname)
@@ -39,6 +40,25 @@ const Navbar = () => {
     useEffect(() => {
         fetchSubLinks();
     },[])
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) { // Medium screen size breakpoint
+                setIsNavOpen(false);
+            }
+        };
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        setIsNavOpen(false); // Close navbar when navigating to a different route
+    }, [location]);
+
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    }
 
   return (
     <div className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${location.pathname !== "/" ? "bg-richblack-800" : "" } transition-all duration-200`}>
@@ -46,8 +66,8 @@ const Navbar = () => {
             <Link to="/">
                 <img src={Logo} alt='Logo' width={160} height={32} loading='lazy'></img>
             </Link>
-            <nav className="hidden md:block">
-                <ul className='flex gap-x-6 text-richblack-25 '> 
+            <nav className={`md:block ${isNavOpen ? "relative left-[10%] flex flex-col mt-[22rem] z-10 bg-richblack-800 w-screen items-center h-full" : "hidden"}`}>
+                <ul className={`${isNavOpen ? "flex flex-col gap-10 py-10" : ""} flex gap-x-6 text-richblack-25 `}> 
                     {
                         NavbarLinks.map((link, index) => {
                             return (
@@ -141,8 +161,8 @@ const Navbar = () => {
                     )
                 }
             </div>
-            <button className="mr-4 md:hidden">
-                <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+            <button className="mr-4 md:hidden" onClick={toggleNav}>
+                {isNavOpen ? <AiOutlineClose fontSize={24} fill="#AFB2BF"/> : <AiOutlineMenu fontSize={24} fill="#AFB2BF" />}
             </button>
 
         </div>
