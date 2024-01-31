@@ -64,9 +64,9 @@ const Navbar = () => {
     <div className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${location.pathname !== "/" ? "bg-richblack-800" : "" } transition-all duration-200`}>
         <div className='w-11/12 flex max-w-maxContent items-center justify-between'>
             <Link to="/">
-                <img src={Logo} alt='Logo' width={160} height={32} loading='lazy'></img>
+                <img src={Logo} alt='Logo' loading='lazy'></img>
             </Link>
-            <nav className={`md:block ${isNavOpen ? "relative left-[20%] flex flex-col mt-[22rem] z-10 bg-richblack-800 w-screen items-center h-full" : "hidden"}`}>
+            <nav className={`md:block ${isNavOpen ? "relative left-[40%] flex flex-col mt-[22rem] z-10 bg-richblack-800 w-[100%] items-center h-full" : "hidden"}`}>
                 <ul className={`${isNavOpen ? "flex flex-col gap-10 py-10" : ""} flex gap-x-6 text-richblack-25 `}> 
                     {
                         NavbarLinks.map((link, index) => {
