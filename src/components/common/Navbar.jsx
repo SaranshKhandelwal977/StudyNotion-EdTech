@@ -66,7 +66,7 @@ const Navbar = () => {
             <Link to="/">
                 <img src={Logo} alt='Logo' width={160} height={32} loading='lazy'></img>
             </Link>
-            <nav className={`md:block ${isNavOpen ? "relative left-[10%] flex flex-col mt-[22rem] z-10 bg-richblack-800 w-screen items-center h-full" : "hidden"}`}>
+            <nav className={`md:block ${isNavOpen ? "relative left-[20%] flex flex-col mt-[22rem] z-10 bg-richblack-800 w-screen items-center h-full" : "hidden"}`}>
                 <ul className={`${isNavOpen ? "flex flex-col gap-10 py-10" : ""} flex gap-x-6 text-richblack-25 `}> 
                     {
                         NavbarLinks.map((link, index) => {
@@ -119,7 +119,7 @@ const Navbar = () => {
                     }
                 </ul>
             </nav>
-            <div className="hidden items-center gap-x-4 md:flex">
+            <div className="items-center gap-x-4 md:flex">
                 {
                     user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR  && 
                     (
@@ -160,10 +160,10 @@ const Navbar = () => {
                         <ProfileDropDown/>
                     )
                 }
+                <button className="mr-4 md:hidden" onClick={toggleNav}>
+                    {isNavOpen ? <AiOutlineClose fontSize={24} fill="#AFB2BF"/> : <AiOutlineMenu fontSize={24} fill="#AFB2BF" />}
+                </button>
             </div>
-            <button className="mr-4 md:hidden" onClick={toggleNav}>
-                {isNavOpen ? <AiOutlineClose fontSize={24} fill="#AFB2BF"/> : <AiOutlineMenu fontSize={24} fill="#AFB2BF" />}
-            </button>
 
         </div>
     </div>
