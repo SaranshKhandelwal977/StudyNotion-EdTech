@@ -119,7 +119,7 @@ const Navbar = () => {
                     }
                 </ul>
             </nav>
-            <div className="items-center gap-x-4 md:flex">
+            <div className="items-center gap-x-4 flex">
                 {
                     user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR  && 
                     (
