@@ -18,7 +18,7 @@ The EdTech project aims to provide a comprehensive online learning platform wher
 
 ## 2. Project Functionalities
 
--**User Authentication:**
+- **User Authentication:**
 
   - Users can sign up as either students or instructors.
   - Upon filling in the signup details and clicking "create account," an OTP is sent to the user's email.
