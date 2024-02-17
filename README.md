@@ -123,6 +123,11 @@ Check out the live demo of the EdTech Project [here](https://study-notion-ed-tec
 ## 7. Contributing
 
 Contributions are welcome! If you find any issues or want to add new features, feel free to submit a pull request.
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Add feature-name"`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
 
 ## 8. License
 
