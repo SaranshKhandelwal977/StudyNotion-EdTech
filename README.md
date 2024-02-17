@@ -11,7 +11,6 @@ Welcome to the repository for the EdTech Project, a full-stack MERN (MongoDB, Ex
 - [5. Usage](#5-usage)
 - [6. Live Demo](#6-live-demo)
 - [7. Contributing](#7-contributing)
-- [8. License](#8-license)
 
 ## 1. Introduction
 
@@ -19,38 +18,37 @@ The EdTech project aims to provide a comprehensive online learning platform wher
 
 ## 2. Project Functionalities
 
-## User Authentication:
+**User Authentication:**
 
 - Users can sign up as either students or instructors.
 - Upon filling in the signup details and clicking "create account," an OTP is sent to the user's email.
 - Users must enter the OTP to successfully sign up. They can request a resend if the OTP expires or doesn't match.
 
-## Password Management:
+**Password Management:**
 
 - Users who forget their passwords can reset them by clicking the "forgot password" button on the login page.
 - A password reset link is sent to the user's registered email.
 
-## User Profile Management:
+**User Profile Management:**
 
 - Upon login, users are directed to their profile page.
 - Users can edit their details by clicking the edit button, redirecting them to the settings route.
 
-## Student Dashboard:
+**Student Dashboard:**
 
 - Students can view their enrolled courses and cart on the dashboard sidebar.
 - Enrolled courses display duration and progress.
-- They can view and manage items in their cart.
 
-## Instructor Dashboard:
+**Instructor Dashboard:**
 
-- Instructors can view their total number of courses, income, and students who have purchased their courses.
-- Course analytics include the number of enrolled students, completion rates, and revenue generated.
+- Instructors can view their total number of courses, income, and how many students have purchased their courses.
+- Course analytics include the number of enrolled students and revenue generated.
 - They can add new courses by following a three-step process:
   1. Fill in course details such as name, description, price, thumbnail, instruction, what will you learn, category, and tags.
   2. Build the course by adding sections and subsections. Each subsection contains a single video, and each section can have any number of subsections.
   3. Click on the checkbox to make the course public.
 
-## Admin Features:
+**Admin Features:**
 
 - Admins can create categories for courses.
 
@@ -128,8 +126,4 @@ Contributions are welcome! If you find any issues or want to add new features, f
 3. Commit your changes: `git commit -m "Add feature-name"`.
 4. Push to the branch: `git push origin feature-name`.
 5. Submit a pull request.
-
-## 8. License
-
-This project is licensed under the [MIT License](LICENSE).
 
