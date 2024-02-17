@@ -84,29 +84,29 @@ The project is built using the following technologies:
 To run the project locally, follow these steps:
 
 1. Clone the repository:
-
+```bash
 git clone https://github.com/SaranshKhandelwal977/StudyNotion-EdTech.git
-
+```
 2. Navigate to the project directory:
-
+```bash
 cd StudyNotion-EdTech
-
+```
 3. Install the dependencies for both the frontend and backend:
-
+```bash
 npm install
 cd backend
 npm install
-
+```
 4. Set up your MongoDB database and update the connection string in the backend `.env` file.
 
 5. Start the backend server:
-
+```bash
 npm start
-
+```
 6. Start the frontend development server:
-
+```bash
 npm start
-
+```
 7. Open your browser and go to `http://localhost:3000` to access the application.
 
 ## 5. Usage
