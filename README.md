@@ -92,7 +92,7 @@ cd StudyNotion-EdTech
 3. Install the dependencies for both the frontend and backend:
 ```bash
 npm install
-cd backend
+cd server
 npm install
 ```
 4. Set up your MongoDB database and update the connection string in the backend `.env` file.
